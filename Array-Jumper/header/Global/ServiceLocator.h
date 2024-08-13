@@ -1,8 +1,9 @@
 #pragma once
 #include "../../header/Graphics/GraphicService.h"
 #include "../../header/Event/EventService.h"
-#include "../../header/UI/UIService.h"
+#include "../../header/Player/PlayerService.h"
 #include "../../header/Sound/SoundService.h"
+#include "../../header/UI/UIService.h"
 
 namespace Global
 {
@@ -11,6 +12,7 @@ namespace Global
     private:
         Graphics::GraphicService* graphic_service;
         Event::EventService* event_service;
+        Player::PlayerService* player_service;
         Sound::SoundService* sound_service;
         UI::UIService* ui_service;
 
@@ -29,6 +31,7 @@ namespace Global
 
         Graphics::GraphicService* getGraphicService();
         Event::EventService* getEventService();
+        Player::PlayerService* getPlayerService();
         Sound::SoundService* getSoundService();
         UI::UIService* getUIService();
     };

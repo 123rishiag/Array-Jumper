@@ -8,6 +8,9 @@ namespace Player
 	class PlayerView
 	{
 	private:
+
+		PlayerController* player_controller;
+
 		sf::RenderWindow* game_window;
 		UI::UIElement::ImageView* player_image;
 
@@ -22,7 +25,7 @@ namespace Player
 		sf::Vector2f calulcatePlayerPosition();
 
 	public:
-		PlayerView();
+		PlayerView(PlayerController* controller);
 		~PlayerView();
 
 		void initialize();
