@@ -19,4 +19,14 @@ namespace Level
             BlockType::ONE,
             BlockType::TARGET };
     };
+
+    struct BoxDimensions
+    {
+        float box_width;
+        float box_height;
+        float box_spacing;
+
+        float box_spacing_percentage = 0.3f;
+        float bottom_offset = 200.f;
+    };
 }

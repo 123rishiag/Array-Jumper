@@ -1,11 +1,9 @@
 #pragma once
 #include "../../header/UI/UIElement/ImageView.h"
-#include "../../header/Level/LevelModel.h"
+#include "../../header/Level/LevelData.h"
 
 namespace Level
 {
-	enum class BlockType;
-
 	class LevelController;
 
 	class LevelView
@@ -50,5 +48,7 @@ namespace Level
 		void initialize();
 		void update();
 		void render();
+
+		BoxDimensions getBoxDimensions() const;
 	};
 }

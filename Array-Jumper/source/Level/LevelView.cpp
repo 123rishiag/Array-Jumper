@@ -1,5 +1,5 @@
 #include "../../header/Level/LevelView.h"
-#include "../../header/Level/BlockType.h"
+#include "../../header/Level/LevelController.h"
 #include "../../header/Global/ServiceLocator.h"
 #include "../../header/Global/Config.h"
 
@@ -24,6 +24,7 @@ namespace Level
 	void LevelView::initialize()
 	{
 		game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
+		calculateBoxDimensions();
 		initializeImages();
 	}
 
@@ -80,7 +81,6 @@ namespace Level
 	{
 		box_dimensions.box_spacing = box_dimensions.box_spacing_percentage * box_dimensions.box_width;
 	}
-
 
 	sf::Vector2f LevelView::calculateBoxPosition(int index)
 	{
@@ -166,6 +166,11 @@ namespace Level
 			return target_overlay_image;
 		}
 		return nullptr;
+	}
+
+	BoxDimensions LevelView::getBoxDimensions() const
+	{
+		return box_dimensions;
 	}
 
 	void LevelView::deleteImages()

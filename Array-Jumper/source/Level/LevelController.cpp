@@ -27,4 +27,14 @@ namespace Level
 	{
 		level_view->render();
 	}
+
+	BoxDimensions LevelController::getBoxDimensions() const
+	{
+		return level_view->getBoxDimensions();
+	}
+
+	BlockType LevelController::getCurrentBoxValue(int currentPosition) const
+	{
+		return level_model->getCurrentBoxValue(currentPosition);
+	}
 }
