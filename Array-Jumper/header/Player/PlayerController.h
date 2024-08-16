@@ -24,7 +24,7 @@ namespace Player
 
 		bool isPositionInBound(int targetPosition) const;
 		void move(MovementDirection direction);
-
+		void jump(MovementDirection direction);
 		void readInput();
 
 		void destroy();
