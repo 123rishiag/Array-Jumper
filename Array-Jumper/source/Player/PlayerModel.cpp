@@ -8,8 +8,7 @@ namespace Player
 
 	void PlayerModel::initialize()
 	{
-		player_state = PlayerState::ALIVE;
-		current_position = 0;
+		resetPlayer();
 	}
 
 	PlayerState PlayerModel::getPlayerState()
@@ -30,5 +29,11 @@ namespace Player
 	void PlayerModel::setCurrentPosition(int new_position)
 	{
 		current_position = new_position;
+	}
+
+	void PlayerModel::resetPlayer()
+	{
+		player_state = PlayerState::ALIVE;
+		current_position = 0;
 	}
 }

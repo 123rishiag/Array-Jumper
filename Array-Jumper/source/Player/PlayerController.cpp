@@ -6,6 +6,7 @@
 #include "../../header/Global/ServiceLocator.h"
 #include "../../header/Sound/SoundService.h"
 #include "../../header/Event/EventService.h"
+#include "../../header/Gameplay/GameplayService.h"
 
 namespace Player
 {
@@ -13,6 +14,7 @@ namespace Player
 	using namespace Sound;
 	using namespace Level;
 	using namespace Event;
+	using namespace Gameplay;
 
 	PlayerController::PlayerController()
 	{
@@ -72,6 +74,8 @@ namespace Player
 
 		player_model->setCurrentPosition(targetPosition);
 		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::MOVE);
+
+		ServiceLocator::getInstance()->getGameplayService()->onPositionChanged(targetPosition);
 	}
 
 	void PlayerController::jump(MovementDirection direction)
@@ -100,6 +104,8 @@ namespace Player
 
 		player_model->setCurrentPosition(targetPosition);
 		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::JUMP);
+
+		ServiceLocator::getInstance()->getGameplayService()->onPositionChanged(targetPosition);
 	}
 
 	void PlayerController::readInput()
@@ -138,6 +144,11 @@ namespace Player
 	void PlayerController::setCurrentPosition(int new_position)
 	{
 		player_model->setCurrentPosition(new_position);
+	}
+
+	void PlayerController::takeDamage()
+	{
+		player_model->resetPlayer();
 	}
 
 	void PlayerController::destroy()
