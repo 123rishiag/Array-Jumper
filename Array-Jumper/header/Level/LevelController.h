@@ -1,6 +1,10 @@
 #pragma once
+
 namespace Level
 {
+	enum class BlockType;
+	struct BoxDimensions;
+
 	class LevelView;
 	class LevelModel;
 
@@ -17,5 +21,8 @@ namespace Level
 		void initialize();
 		void update();
 		void render();
+
+		BoxDimensions getBoxDimensions() const;
+		BlockType getCurrentBoxValue(int currentPosition) const;
 	};
 }

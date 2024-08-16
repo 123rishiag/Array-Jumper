@@ -38,6 +38,16 @@ namespace Player
 		player_model->setPlayerState(new_player_state);
 	}
 
+	int PlayerController::getCurrentPosition() const
+	{
+		return player_model->getCurrentPosition();
+	}
+
+	void PlayerController::setCurrentPosition(int new_position)
+	{
+		player_model->setCurrentPosition(new_position);
+	}
+
 	void PlayerController::destroy()
 	{
 		delete(player_model);
