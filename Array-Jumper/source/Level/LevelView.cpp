@@ -1,6 +1,5 @@
 #include "../../header/Level/LevelView.h"
 #include "../../header/Level/LevelController.h"
-#include "../../header/Level/BlockType.h"
 #include "../../header/Global/ServiceLocator.h"
 #include "../../header/Global/Config.h"
 

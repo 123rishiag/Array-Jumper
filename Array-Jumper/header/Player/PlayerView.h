@@ -1,6 +1,6 @@
 #pragma once
 #include "../../header/UI/UIElement/ImageView.h"
-#include "../../header/Level/LevelModel.h"
+#include "../../header/Level/LevelData.h"
 
 namespace Player
 {

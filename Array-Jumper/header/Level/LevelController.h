@@ -1,10 +1,8 @@
 #pragma once
+#include "../../header/Level/LevelData.h"
 
 namespace Level
 {
-	enum class BlockType;
-	struct BoxDimensions;
-
 	class LevelView;
 	class LevelModel;
 
