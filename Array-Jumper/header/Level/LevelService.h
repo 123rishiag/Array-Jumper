@@ -20,5 +20,6 @@ namespace Level
 		void render();
 
 		BoxDimensions getBoxDimensions() const;
+		BlockType getCurrentBoxValue(int currentPosition) const;
 	};
 }
