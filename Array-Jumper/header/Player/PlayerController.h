@@ -1,7 +1,14 @@
 #pragma once
 
+namespace Event
+{
+	class EventService;
+}
+
 namespace Player
 {
+	enum class MovementDirection;
+
 	class PlayerView;
 	class PlayerModel;
 
@@ -12,6 +19,13 @@ namespace Player
 	private:
 		PlayerModel* player_model;
 		PlayerView* player_view;
+
+		Event::EventService* event_service;
+
+		bool isPositionInBound(int targetPosition) const;
+		void move(MovementDirection direction);
+
+		void readInput();
 
 		void destroy();
 
