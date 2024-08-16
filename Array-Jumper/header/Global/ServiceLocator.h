@@ -1,6 +1,7 @@
 #pragma once
 #include "../../header/Graphics/GraphicService.h"
 #include "../../header/Event/EventService.h"
+#include "../../header/Gameplay/GameplayService.h"
 #include "../../header/Level/LevelService.h"
 #include "../../header/Player/PlayerService.h"
 #include "../../header/Sound/SoundService.h"
@@ -13,6 +14,7 @@ namespace Global
     private:
         Graphics::GraphicService* graphic_service;
         Event::EventService* event_service;
+        Gameplay::GameplayService* gameplay_service;
         Level::LevelService* level_service;
         Player::PlayerService* player_service;
         Sound::SoundService* sound_service;
@@ -33,6 +35,7 @@ namespace Global
 
         Graphics::GraphicService* getGraphicService();
         Event::EventService* getEventService();
+        Gameplay::GameplayService* getGameplayService();
         Level::LevelService* getLevelService();
         Player::PlayerService* getPlayerService();
         Sound::SoundService* getSoundService();
