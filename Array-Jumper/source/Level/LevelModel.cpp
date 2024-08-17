@@ -2,7 +2,9 @@
 
 namespace Level
 {
-	LevelModel::LevelModel() {}
+	LevelModel::LevelModel() {
+		reset();
+	}
 	LevelModel::~LevelModel() {}
 
 	bool LevelModel::isLastLevel() const

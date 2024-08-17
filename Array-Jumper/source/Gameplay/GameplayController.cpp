@@ -31,7 +31,14 @@ namespace Gameplay
 	{
 		ServiceLocator::getInstance()->getPlayerService()->levelComplete();
 		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::LEVEL_COMPLETE);
-		GameService::setGameState(GameState::CREDITS);
+
+		if (isLastLevel())
+		{
+			gameWon();
+			return;
+		}
+
+		loadNextLevel();
 	}
 
 	bool GameplayController::isObstacle(Level::BlockType value) const
@@ -62,10 +69,28 @@ namespace Gameplay
 	{
 		GameService::setGameState(GameState::CREDITS);
 		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::DEATH);
+		ServiceLocator::getInstance()->getLevelService()->resetLevels();
 	}
 
 	void GameplayController::onDeath()
 	{
 		gameOver();
+	}
+
+	void GameplayController::gameWon()
+	{
+		GameService::setGameState(GameState::CREDITS);
+		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::GAME_WON);
+		ServiceLocator::getInstance()->getLevelService()->resetLevels();
+	}
+
+	bool GameplayController::isLastLevel() const
+	{
+		return ServiceLocator::getInstance()->getLevelService()->isLastLevel();
+	}
+
+	void GameplayController::loadNextLevel()
+	{
+		ServiceLocator::getInstance()->getLevelService()->loadNextLevel();
 	}
 }
