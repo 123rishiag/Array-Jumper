@@ -14,11 +14,14 @@ namespace UI
 			const float left_offset = 100.f;
 			const float right_offset = 250.f;
 
+			UIElement::TextView* level_count_text;
 			UIElement::TextView* life_count_text;
 
 			void createTexts();
 			void initializeTexts();
+			void initializeLevelCountText();
 			void initializeLifeCountText();
+			void updateLevelCountText();
 			void updateLifeCountText();
 
 			void destroy();
