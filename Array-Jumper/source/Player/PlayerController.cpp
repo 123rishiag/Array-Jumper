@@ -126,7 +126,7 @@ namespace Player
 		}
 	}
 
-	PlayerState PlayerController::getPlayerState()
+	PlayerState PlayerController::getPlayerState() const
 	{
 		return player_model->getPlayerState();
 	}
@@ -146,7 +146,27 @@ namespace Player
 		player_model->setCurrentPosition(new_position);
 	}
 
+	int PlayerController::getCurrentLives() const
+	{
+		return player_model->getCurrentLives();
+	}
+
 	void PlayerController::takeDamage()
+	{
+		player_model->decrementLife();
+		if (player_model->getCurrentLives() <= 0)
+			onDeath();
+		else
+			player_model->resetPosition();
+	}
+
+	void PlayerController::onDeath()
+	{
+		ServiceLocator::getInstance()->getGameplayService()->onDeath();
+		player_model->resetPlayer();
+	}
+
+	void PlayerController::resetPlayer()
 	{
 		player_model->resetPlayer();
 	}

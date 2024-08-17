@@ -4,7 +4,6 @@
 
 namespace Level
 {
-
 	LevelController::LevelController()
 	{
 		level_view = new LevelView(this);

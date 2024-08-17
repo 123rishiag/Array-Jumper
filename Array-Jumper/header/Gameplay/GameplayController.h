@@ -11,6 +11,8 @@ namespace Gameplay
 		bool isObstacle(Level::BlockType value) const;
 		void processObstacle();
 
+		void gameOver();
+
 	public:
 		GameplayController();
 		~GameplayController();
@@ -20,5 +22,6 @@ namespace Gameplay
 		void render();
 
 		void onPositionChanged(int position);
+		void onDeath();
 	};
 }

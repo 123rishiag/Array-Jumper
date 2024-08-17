@@ -37,12 +37,17 @@ namespace Player
 		void update();
 		void render();
 
-		PlayerState getPlayerState();
+		PlayerState getPlayerState() const;
 		void setPlayerState(PlayerState new_player_state);
 
 		int getCurrentPosition() const;
 		void setCurrentPosition(int new_position);
 
+		int getCurrentLives() const;
+
 		void takeDamage();
+
+		void onDeath();
+		void resetPlayer();
 	};
 }
