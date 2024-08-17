@@ -1,12 +1,14 @@
 #include "../../header/Gameplay/GameplayController.h"
 #include "../../header/Global/ServiceLocator.h"
 #include "../../header/Sound/SoundService.h"
+#include "../../header/Main/GameService.h"
 
 namespace Gameplay
 {
 	using namespace Global;
 	using namespace Sound;
 	using namespace Level;
+	using namespace Main;
 
 	GameplayController::GameplayController() { }
 
@@ -18,7 +20,21 @@ namespace Gameplay
 
 	void GameplayController::render() { }
 
-	bool GameplayController::isObstacle(Level::BlockType value)
+	bool GameplayController::isEndBlock(Level::BlockType value) const
+	{
+		if (value == BlockType::TARGET)
+			return true;
+		return false;
+	}
+
+	void GameplayController::processEndBlock()
+	{
+		ServiceLocator::getInstance()->getPlayerService()->levelComplete();
+		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::LEVEL_COMPLETE);
+		GameService::setGameState(GameState::CREDITS);
+	}
+
+	bool GameplayController::isObstacle(Level::BlockType value) const
 	{
 		if (value == BlockType::OBSTACLE_ONE || value == BlockType::OBSTACLE_TWO)
 			return true;
@@ -37,5 +53,8 @@ namespace Gameplay
 
 		if (isObstacle(value))
 			processObstacle();
+
+		if (isEndBlock(value))
+			processEndBlock();
 	}
 }
