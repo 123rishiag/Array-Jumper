@@ -11,7 +11,7 @@ namespace Player
 		resetPlayer();
 	}
 
-	PlayerState PlayerModel::getPlayerState()
+	PlayerState PlayerModel::getPlayerState() const
 	{
 		return player_state;
 	}
@@ -21,7 +21,7 @@ namespace Player
 		player_state = new_player_state;
 	}
 
-	int PlayerModel::getCurrentPosition()
+	int PlayerModel::getCurrentPosition() const
 	{
 		return current_position;
 	}
@@ -31,9 +31,26 @@ namespace Player
 		current_position = new_position;
 	}
 
+	int PlayerModel::getCurrentLives() const
+	{
+		return current_lives;
+	}
+
+	void PlayerModel::decrementLife() 
+	{
+		resetPosition();
+		current_lives--; 
+	}
+
+	void PlayerModel::resetPosition()
+	{
+		current_position = 0;
+	}
+
 	void PlayerModel::resetPlayer()
 	{
 		player_state = PlayerState::ALIVE;
-		current_position = 0;
+		resetPosition();
+		current_lives = max_lives;
 	}
 }

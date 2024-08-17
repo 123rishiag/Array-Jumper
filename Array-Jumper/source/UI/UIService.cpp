@@ -1,5 +1,4 @@
 #include "../../header/UI/UIService.h"
-#include "../../header/UI/Instructions/InstructionsUIController.h"
 #include "../../header/Main/GameService.h"
 #include "../../header/Global/ServiceLocator.h"
 #include "../../header/UI/UIElement/TextView.h"
@@ -11,8 +10,9 @@ namespace UI
     using namespace Main;
     using namespace SplashScreen;
     using namespace MainMenu;
-    using namespace Credits;
     using namespace Instructions;
+    using namespace GameplayUI;
+    using namespace Credits;
     using namespace Global;
     using namespace UIElement;
 
@@ -20,8 +20,9 @@ namespace UI
     {
         splash_screen_ui_controller = nullptr;
         main_menu_ui_controller = nullptr;
-        credits_screen_ui_controller = nullptr;
         instructions_ui_controller = nullptr;
+        gameplay_ui_controller = nullptr;
+        credits_screen_ui_controller = nullptr;
 
         createControllers();
     }
@@ -35,8 +36,9 @@ namespace UI
     {
         splash_screen_ui_controller = new SplashScreenUIController();
         main_menu_ui_controller = new MainMenuUIController();
-        credits_screen_ui_controller = new CreditsScreenUIController();
         instructions_ui_controller = new InstructionsUIController();
+        gameplay_ui_controller = new GameplayUIController();
+        credits_screen_ui_controller = new CreditsScreenUIController();
     }
 
     void UIService::initialize()
@@ -49,8 +51,9 @@ namespace UI
     {
         splash_screen_ui_controller->initialize();
         main_menu_ui_controller->initialize();
-        credits_screen_ui_controller->initialize();
         instructions_ui_controller->initialize();
+        gameplay_ui_controller->initialize();
+        credits_screen_ui_controller->initialize();
     }
 
     void UIService::initializeUIElements()
@@ -71,6 +74,9 @@ namespace UI
         case GameState::INSTRUCTIONS:
             instructions_ui_controller->update();
             break;
+        case GameState::GAMEPLAY:
+            gameplay_ui_controller->update();
+            break;
         case GameState::CREDITS:
             credits_screen_ui_controller->update();
             break;
@@ -90,6 +96,9 @@ namespace UI
         case GameState::INSTRUCTIONS:
             instructions_ui_controller->render();
             break;
+        case GameState::GAMEPLAY:
+            gameplay_ui_controller->render();
+            break;
         case GameState::CREDITS:
             credits_screen_ui_controller->render();
             break;
@@ -105,7 +114,8 @@ namespace UI
     {
         delete(splash_screen_ui_controller);
         delete(main_menu_ui_controller);
-        delete(credits_screen_ui_controller);
         delete(instructions_ui_controller);
+        delete(gameplay_ui_controller);
+        delete(credits_screen_ui_controller);
     }
 }

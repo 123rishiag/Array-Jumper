@@ -22,6 +22,11 @@ namespace Player
 		player_controller->render();
 	}
 
+	int PlayerService::getCurrentLives() const
+	{
+		return player_controller->getCurrentLives();
+	}
+
 	void PlayerService::takeDamage()
 	{
 		player_controller->takeDamage();
@@ -29,7 +34,7 @@ namespace Player
 
 	void PlayerService::levelComplete()
 	{
-		player_controller->takeDamage();
+		player_controller->resetPlayer();
 	}
 
 	void PlayerService::destroy() { delete(player_controller); }

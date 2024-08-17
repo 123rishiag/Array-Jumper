@@ -6,8 +6,6 @@ namespace UI
 {
 	namespace SplashScreen
 	{
-		/*class SoundService;*/
-
 		class SplashScreenUIController
 		{
 		private:
