@@ -6,7 +6,9 @@ namespace Gameplay
 	class GameplayController
 	{
 	private:
-		bool isObstacle(Level::BlockType value);
+		bool isEndBlock(Level::BlockType value) const;
+		void processEndBlock();
+		bool isObstacle(Level::BlockType value) const;
 		void processObstacle();
 
 	public:
