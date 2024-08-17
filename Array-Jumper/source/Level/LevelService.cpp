@@ -25,6 +25,21 @@ namespace Level
 		level_controller->render();
 	}
 
+	bool LevelService::isLastLevel() const
+	{
+		return level_controller->isLastLevel();
+	}
+
+	void LevelService::loadNextLevel()
+	{
+		level_controller->loadNextLevel();
+	}
+
+	int LevelService::getCurrentLevelNumber() const
+	{
+		return level_controller->getCurrentLevelNumber();
+	}
+
 	BoxDimensions LevelService::getBoxDimensions() const
 	{
 		return level_controller->getBoxDimensions();
@@ -33,6 +48,11 @@ namespace Level
 	BlockType LevelService::getCurrentBoxValue(int currentPosition) const
 	{
 		return level_controller->getCurrentBoxValue(currentPosition);
+	}
+
+	void LevelService::resetLevels()
+	{
+		level_controller->resetLevels();
 	}
 
 	void LevelService::destroy()
