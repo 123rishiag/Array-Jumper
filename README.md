@@ -66,4 +66,4 @@ Welcome to **Array Jumper**, a strategic movement-based game that centers around
 3. **Run the executable** to start the game.
 
 ## Video Demo
-Watch the [Video Demo](#) (https://www.loom.com/share/97d1d95af163443b878ca7824d3b8491?sid=2f466137-0592-4e7f-aa89-dace1243aae6)
+Watch the [Video Demo](https://www.loom.com/share/97d1d95af163443b878ca7824d3b8491?sid=2f466137-0592-4e7f-aa89-dace1243aae6)
