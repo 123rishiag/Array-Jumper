@@ -28,7 +28,6 @@ Welcome to **Array Jumper**, a strategic movement-based game that centers around
 
 - **GraphicService**: Manages game window and rendering operations.
 - **EventService**: Handles user input and game events.
-- **TimeService**: Manages game timing and countdowns.
 - **SoundService**: Manages sound effects and music playback.
 - **UIService**: Manages UI components.
   - UI Controllers: `SplashScreenUIController`, `MainMenuUIController`, `InstructionUIController`, `GameplayUIController`, `CreditsScreenUIController`
